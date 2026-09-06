@@ -18,8 +18,13 @@
     sort: "relevancia",
   };
 
+  function productImage(product) {
+    return `assets/img/products/${product.img}.jpg`;
+  }
+
   function categoryImage(categoryId) {
-    return `assets/img/products/${categoryId}.jpg`;
+    const representative = PRODUCTS.find((p) => p.category === categoryId);
+    return representative ? productImage(representative) : "";
   }
 
   function renderCategoryList() {
@@ -107,7 +112,7 @@
         return `
           <article class="product-card">
             <div class="product-media">
-              <img src="${categoryImage(p.category)}" alt="${p.name}" loading="lazy" />
+              <img src="${productImage(p)}" alt="${p.name}" loading="lazy" />
             </div>
             <div class="product-card-body">
               <div class="eyebrow-row">

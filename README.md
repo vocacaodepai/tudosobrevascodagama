@@ -31,10 +31,13 @@ Edite `assets/js/products.js`. Cada produto é um objeto assim:
   audience: "adulto",        // "adulto" | "infantil" | "unissex"
   keywords: "camisa retro vasco da gama 1898", // usado na busca da Amazon
   desc: "Homenagem ao centenário e à história cruzmaltina.",
+  img: "camisa-retro",       // nome do arquivo em assets/img/products/ (sem .jpg)
 }
 ```
 
 Para criar uma categoria nova, adicione um item em `CATEGORIES` no mesmo arquivo.
+Para trocar a foto de um produto, salve um `.jpg` em `assets/img/products/` e
+aponte o campo `img` para o nome do arquivo (sem extensão).
 
 ## Como publicar (grátis)
 
@@ -56,7 +59,7 @@ assets/js/affiliate.js         configuração do tag de afiliado
 assets/js/products.js          catálogo de produtos e categorias
 assets/js/app.js               filtros, busca e renderização
 assets/img/escudo-vasco.svg    escudo oficial do Vasco (usado no cabeçalho/hero)
-assets/img/products/*.jpg      1 foto ilustrativa por categoria de produto
+assets/img/products/*.jpg      1 foto ilustrativa por produto (59 arquivos)
 ```
 
 ## Sobre as imagens
@@ -64,14 +67,17 @@ assets/img/products/*.jpg      1 foto ilustrativa por categoria de produto
 - **Escudo do Vasco**: é o brasão real do clube, usado apenas para identificação
   visual em um site de torcedores (o rodapé já deixa claro que o site não tem
   vínculo oficial com o clube).
-- **Fotos de produto**: são imagens **ilustrativas geradas digitalmente** (uma por
-  categoria — camisa, caneca, boné etc.), não fotos reais dos anúncios da Amazon.
-  Isso é proposital: copiar fotos de produto direto da Amazon viola direitos
-  autorais e o Contrato de Operação do Programa de Associados da Amazon, que só
-  autoriza usar imagens de produto via Product Advertising API oficial (liberada
-  depois que sua conta gerar as primeiras vendas qualificadas). Quando você tiver
-  acesso a essa API, dá para trocar `assets/img/products/*.jpg` pelas fotos
-  oficiais de cada item.
+- **Fotos de produto**: são imagens **ilustrativas geradas digitalmente**, uma
+  para cada um dos 59 produtos do catálogo (sem o escudo — testamos aplicar o
+  escudo nas fotos e o próprio gerador de imagem bloqueou por risco de violação
+  de marca registrada). Não são fotos reais dos anúncios da Amazon: copiar foto
+  de produto direto da Amazon (ou de qualquer loja) viola direito autoral de
+  quem tirou a foto e o Contrato de Operação do Programa de Associados da
+  Amazon, que só autoriza usar imagens de produto via Product Advertising API
+  oficial (liberada depois que sua conta gerar as primeiras vendas
+  qualificadas). Quando você tiver acesso a essa API, dá para trocar os
+  arquivos em `assets/img/products/` pelas fotos oficiais de cada item (o campo
+  `img` de cada produto em `products.js` aponta para o nome do arquivo).
 
 ## Compliance com a Amazon Associates
 
