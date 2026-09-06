@@ -1,8 +1,8 @@
 # Tudo Sobre Vasco da Gama — Loja do Torcedor
 
 Site estático (HTML/CSS/JS puro, sem build) para vender produtos do Vasco da Gama
-via link de afiliado da Amazon, com visual preto/branco/dourado inspirado no clube,
-filtro por categoria, público (adulto/infantil) e busca.
+via link de afiliado da Amazon, com visual minimalista preto/branco (com o escudo
+oficial do clube), filtro por categoria, público (adulto/infantil) e busca.
 
 ## Como colocar seu tag de afiliado
 
@@ -50,12 +50,28 @@ Não há dependências, banco de dados nem processo de build — é só HTML/CSS
 ## Estrutura
 
 ```
-index.html               página única
-assets/css/styles.css    visual (cores/tema do Vasco)
-assets/js/affiliate.js   configuração do tag de afiliado
-assets/js/products.js    catálogo de produtos e categorias
-assets/js/app.js         filtros, busca e renderização
+index.html                     página única
+assets/css/styles.css          visual (minimalista, preto/branco/vermelho)
+assets/js/affiliate.js         configuração do tag de afiliado
+assets/js/products.js          catálogo de produtos e categorias
+assets/js/app.js               filtros, busca e renderização
+assets/img/escudo-vasco.svg    escudo oficial do Vasco (usado no cabeçalho/hero)
+assets/img/products/*.jpg      1 foto ilustrativa por categoria de produto
 ```
+
+## Sobre as imagens
+
+- **Escudo do Vasco**: é o brasão real do clube, usado apenas para identificação
+  visual em um site de torcedores (o rodapé já deixa claro que o site não tem
+  vínculo oficial com o clube).
+- **Fotos de produto**: são imagens **ilustrativas geradas digitalmente** (uma por
+  categoria — camisa, caneca, boné etc.), não fotos reais dos anúncios da Amazon.
+  Isso é proposital: copiar fotos de produto direto da Amazon viola direitos
+  autorais e o Contrato de Operação do Programa de Associados da Amazon, que só
+  autoriza usar imagens de produto via Product Advertising API oficial (liberada
+  depois que sua conta gerar as primeiras vendas qualificadas). Quando você tiver
+  acesso a essa API, dá para trocar `assets/img/products/*.jpg` pelas fotos
+  oficiais de cada item.
 
 ## Compliance com a Amazon Associates
 

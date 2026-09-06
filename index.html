@@ -11,24 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
   <div class="top-bar">
-    ⚓ Feito por torcedores, para torcedores &middot; <strong>Loja não oficial</strong> com produtos licenciados vendidos na Amazon
+    Feito por torcedores, para torcedores &middot; <strong>Loja não oficial</strong> com produtos vendidos na Amazon
   </div>
 
   <header class="site-header">
     <div class="container">
       <a href="#topo" class="brand">
-        <svg class="crest" viewBox="0 0 100 100" role="img" aria-label="Escudo Tudo Sobre Vasco da Gama">
-          <polygon points="50,3 97,50 50,97 3,50" fill="#0a0a0a" stroke="#d9c27e" stroke-width="3" />
-          <rect x="44" y="14" width="12" height="72" fill="#ffffff" />
-          <rect x="14" y="44" width="72" height="12" fill="#ffffff" />
-        </svg>
+        <img class="crest" src="assets/img/escudo-vasco.svg" alt="Escudo do Club de Regatas Vasco da Gama" />
         <span class="brand-text">
           <span class="brand-title">Tudo Sobre Vasco da Gama</span>
           <span class="brand-sub">Loja do Torcedor</span>
@@ -48,7 +44,7 @@
     <section class="hero" id="topo">
       <div class="container">
         <div>
-          <span class="hero-eyebrow">⚓ Club de Regatas Vasco da Gama</span>
+          <span class="hero-eyebrow">Club de Regatas Vasco da Gama</span>
           <h1>Tudo o que o torcedor <span>Cruzmaltino</span> precisa, em um só lugar</h1>
           <p>
             Camisas, canecas, livros, itens infantis, decoração e colecionáveis do Vasco da Gama,
@@ -59,28 +55,30 @@
             <a href="#categorias" class="btn btn-ghost">Explorar categorias</a>
           </div>
         </div>
-        <div class="hero-card">
-          <h3>Por que comprar por aqui?</h3>
-          <p>Curadoria de quem manja da história e das cores do Gigante da Colina.</p>
-          <div class="hero-stats">
-            <div>
-              <strong id="stat-products">--</strong>
-              <span>Produtos</span>
-            </div>
-            <div>
-              <strong id="stat-categories">--</strong>
-              <span>Categorias</span>
-            </div>
-            <div>
-              <strong>127</strong>
-              <span>Anos de história</span>
-            </div>
-          </div>
+        <div class="hero-crest-wrap">
+          <img class="hero-crest" src="assets/img/escudo-vasco.svg" alt="Escudo do Vasco da Gama" />
         </div>
       </div>
     </section>
 
-    <section class="shortcuts container" id="categorias">
+    <section class="stats-strip">
+      <div class="container">
+        <div>
+          <strong id="stat-products">--</strong>
+          <span>Produtos</span>
+        </div>
+        <div>
+          <strong id="stat-categories">--</strong>
+          <span>Categorias</span>
+        </div>
+        <div>
+          <strong>127</strong>
+          <span>Anos de história</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="categorias">
       <div class="section-heading">
         <div>
           <h2>Compre por categoria</h2>
@@ -90,7 +88,7 @@
       <div class="shortcut-grid" id="shortcut-grid"></div>
     </section>
 
-    <section class="store container" id="loja">
+    <section class="section container" id="loja">
       <div class="section-heading">
         <div>
           <h2>Loja completa</h2>
@@ -149,22 +147,18 @@
     <section class="about" id="sobre">
       <div class="container about-grid">
         <div class="about-card">
-          <span class="icon">⚓</span>
           <h3>Feito por torcedores</h3>
           <p>Nascemos do perfil "Tudo Sobre Vasco da Gama", que vive a história e o dia a dia do clube.</p>
         </div>
         <div class="about-card">
-          <span class="icon">🛡️</span>
           <h3>Compra segura</h3>
           <p>Todos os produtos são vendidos e entregues pela Amazon, com toda a segurança da plataforma.</p>
         </div>
         <div class="about-card">
-          <span class="icon">🔎</span>
           <h3>Curadoria cruzmaltina</h3>
           <p>Selecionamos itens licenciados e temáticos para todas as idades e ocasiões.</p>
         </div>
         <div class="about-card">
-          <span class="icon">💳</span>
           <h3>Sem custo a mais</h3>
           <p>Você paga o mesmo preço da Amazon; parte da comissão nos ajuda a manter o conteúdo do Vasco.</p>
         </div>
@@ -175,7 +169,8 @@
   <div class="disclosure container">
     Como Associados da Amazon, podemos ganhar comissões sobre compras qualificadas feitas a partir dos links deste
     site, sem nenhum custo adicional para você. <strong>Tudo Sobre Vasco da Gama</strong> é um site de torcedores
-    e não possui vínculo oficial com o Club de Regatas Vasco da Gama.
+    e não possui vínculo oficial com o Club de Regatas Vasco da Gama. As fotos de produtos são ilustrativas
+    (geradas digitalmente); veja a imagem real de cada item na página do produto na Amazon.
   </div>
 
   <footer class="site-footer">
@@ -208,6 +203,7 @@
     document.getElementById("nav-toggle").addEventListener("click", () => {
       document.getElementById("main-nav").classList.toggle("open");
     });
+    document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

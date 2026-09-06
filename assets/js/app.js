@@ -18,15 +18,18 @@
     sort: "relevancia",
   };
 
+  function categoryImage(categoryId) {
+    return `assets/img/products/${categoryId}.jpg`;
+  }
+
   function renderCategoryList() {
-    const items = [{ id: "todas", label: "Todas as categorias", icon: "⭐" }, ...CATEGORIES];
+    const items = [{ id: "todas", label: "Todas as categorias" }, ...CATEGORIES];
     categoryList.innerHTML = items
       .map((cat) => {
         const count = cat.id === "todas" ? PRODUCTS.length : PRODUCTS.filter((p) => p.category === cat.id).length;
         const active = state.category === cat.id ? "active" : "";
         return `
           <button class="category-pill ${active}" data-category="${cat.id}" type="button">
-            <span class="cat-icon">${cat.icon}</span>
             <span class="cat-label">${cat.label}</span>
             <span class="cat-count">${count}</span>
           </button>
@@ -38,6 +41,7 @@
       btn.addEventListener("click", () => {
         state.category = btn.dataset.category;
         renderCategoryList();
+        renderShortcuts();
         renderProducts();
       });
     });
@@ -99,16 +103,17 @@
 
     grid.innerHTML = list
       .map((p) => {
-        const cat = CATEGORIES.find((c) => c.id === p.category);
         const link = buildAmazonLink(p.keywords);
         return `
           <article class="product-card">
-            <div class="product-card-media">
-              <span class="product-icon" aria-hidden="true">${cat ? cat.icon : "⚽"}</span>
-              <span class="badge badge-audience">${audienceLabel(p.audience)}</span>
+            <div class="product-media">
+              <img src="${categoryImage(p.category)}" alt="${p.name}" loading="lazy" />
             </div>
             <div class="product-card-body">
-              <span class="badge badge-category">${categoryLabel(p.category)}</span>
+              <div class="eyebrow-row">
+                <span class="badge-category">${categoryLabel(p.category)}</span>
+                <span class="badge-audience">${audienceLabel(p.audience)}</span>
+              </div>
               <h3 class="product-title">${p.name}</h3>
               <p class="product-desc">${p.desc}</p>
             </div>
@@ -147,6 +152,7 @@
     audienceSelect.value = "todos";
     sortSelect.value = "relevancia";
     renderCategoryList();
+    renderShortcuts();
     renderProducts();
   });
 
@@ -156,8 +162,9 @@
 
     shortcutGrid.innerHTML = CATEGORIES.map(
       (c) => `
-        <button class="shortcut-card" data-jump-category="${c.id}" type="button">
-          <span class="icon" aria-hidden="true">${c.icon}</span>
+        <button class="shortcut-card ${state.category === c.id ? "is-active" : ""}" data-jump-category="${c.id}" type="button">
+          <img src="${categoryImage(c.id)}" alt="" loading="lazy" />
+          <span class="scrim" aria-hidden="true"></span>
           <span class="label">${c.label}</span>
         </button>`
     ).join("");
