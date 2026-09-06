@@ -165,10 +165,7 @@ h1, h2, h3 {
 
 .hero .container {
   padding: 64px 24px 56px;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
+  max-width: 720px;
 }
 
 .hero-eyebrow {
@@ -243,21 +240,6 @@ h1, h2, h3 {
 .btn-ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
-}
-
-.hero-crest-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 30px;
-}
-
-.hero-crest {
-  width: 100%;
-  max-width: 220px;
 }
 
 /* ---------- Stats strip ---------- */
@@ -688,16 +670,6 @@ h1, h2, h3 {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .hero .container {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-crest-wrap {
-    order: -1;
-    max-width: 220px;
-    margin: 0 auto;
-  }
-
   .stats-strip .container {
     grid-template-columns: repeat(3, 1fr);
   }
